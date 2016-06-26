@@ -1,0 +1,203 @@
+body { 
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: 'Comfortaa', 'Open Sans', Arial, sans-serif;
+  cursor: default;
+} 
+canvas, #canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+/** LOADER **/
+#loader {
+  position: absolute;
+  width: 320px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  margin-top: -60px;
+  margin-left: -150px;
+  z-index: 100;
+  transition: opacity 1s;
+  pointer-events: none;
+}
+  #loader #base {
+    padding: 10px;
+    color: #000;
+    font-size: 80px;
+    text-shadow: -1px -1px 0 #00cbff, 1px -1px 0 #00cbff, -1px  1px 0 #00cbff, 1px  1px 0 #00cbff;
+  }
+  #loader #progress {
+    width: 0%;
+    position: absolute;
+    top: 0; left: 0;
+    padding: 10px;
+    overflow: hidden;
+    color: #00cbff;
+    font-size: 80px;
+    text-shadow: 0 0 10px #00cbff, 0 0 20px #00cbff, 0 0 30px #00cbff;
+    transition: width 0.3s;
+  }
+  #loader #message {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+  }
+  #loader.error #base { text-shadow: -1px -1px 0 #ff0000, 1px -1px 0 #ff0000, -1px  1px 0 #ff0000, 1px  1px 0 #ff0000; }
+  #loader.error #progress { color: #ff003e; text-shadow: 0 0 15px #ff0066, 0 0 30px #ff0066; }
+
+
+/** OVERLAYS */
+#overlay, #uicover {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+  background: black;
+  opacity: 1;
+  transition: opacity 2s;
+  pointer-events: none;
+}
+#uicover { transition: none; z-index: 10000; }
+
+
+/** HUD **/
+#hud {
+  position: absolute; 
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  color: white;
+  pointer-events: none;
+}
+  #hud #fps {
+    position: absolute; 
+    top: 0; left: 0;
+    width: 125px;
+    height: 30px;
+    padding: 5px 0 0 10px;
+    background: url('src/resources/hud/fps-bg.png') no-repeat;
+    font-size: 14px;
+  }
+  #hud #crosshair {
+    position: absolute; 
+    top: 50%; left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    background-image: url('src/resources/hud/crosshair.png');
+  }
+  #hud #info {
+    position: absolute; 
+    left: 0; bottom: 0;
+    width: 180px;
+    height: 50px;
+    padding: 13px 0 0 15px;
+    background: url('src/resources/hud/info-bg.png') no-repeat;
+    text-align: left;
+  }
+    #hud #info #chamber { font-size: 20px; }
+    #hud #info #time { font-size: 16px; }
+  #hud #gravity {
+    position: absolute; 
+    top: 0; right: 0;
+    width: 139px;
+    height: 100px;
+    margin: 15px 15px 0 0;
+    background-repeat: no-repeat;
+    background-image: url('src/resources/hud/g0-10.png');
+  }
+
+
+/** LEVEL **/
+#level {
+  position: absolute; 
+  top: 50%; left: 0;
+  margin-top: -40px; 
+  width: 100%;
+  height: 100px;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: -1px -1px 0 #00cbff, 1px -1px 0 #00cbff, -1px  1px 0 #00cbff, 1px  1px 0 #00cbff, 0px  0px 10px #00cbff;
+  color: white;
+  opacity: 0;
+  transition: opacity 3s;
+  z-index: 70;
+  pointer-events: none;
+}
+
+
+/** MENU **/
+#menu {
+  position: absolute; 
+  top: 50%; left: 50%;
+  margin: -180px 0 0 -200px; 
+  width: 320px;
+  height: 235px;
+  padding: 125px 40px 10px;
+  background: url('src/resources/hud/menu.png') no-repeat;
+  z-index: 50;
+}
+  #menu div, #gg div {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 20px; 
+    background: rgba(0, 203, 255, 0.4);
+    border: 1px solid #1;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  #menu div:hover {
+    background: rgba(0, 203, 255, 1.0);
+  }
+  #menu div:active {
+    background: rgba(0, 203, 255, 0.0);
+  }
+
+
+/** GAME OVER **/
+#gg {
+  position: absolute; 
+  top: 50%; left: 50%;
+  width: 750px;
+  height: 152px;
+  margin: -76px 0 0 -375px;
+  text-align: center;
+  z-index: 60;
+  transition: opacity 5s
+}
+  #gg span {
+    font-size: 80px;
+    color: #ff003e; text-shadow: 0 0 15px #ff0066, 0 0 30px #ff0066;
+  }
+  #gg div {
+    display: inline-block;
+    width: 40%;
+    margin: 0 20px;
+    background: rgba(255, 0, 102, 0.4);
+    border: 1px solid #ff0000;
+  }
+  #gg div:hover {
+    background: rgba(255, 0, 60, 1.0);
+  }
+  #gg div:active {
+    background: rgba(255, 0, 60, 0.0);
+  }
+  #gg.success span {
+    color: #33cc33; text-shadow: 0 0 15px #33cc33, 0 0 30px #33cc33;
+  }
+  #gg.success #gg-label { width: 40% }
+  #gg.success div {
+    background: rgba(51, 204, 51, 0.4);
+    border: 1px solid #33cc33;
+  }
+  #gg.success div:hover {
+    background: rgba(51, 204, 51, 1.0);
+  }
+  #gg.success div:active {
+    background: rgba(51, 204, 51, 0.0);
+  }

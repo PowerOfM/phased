@@ -1,0 +1,81 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PHASED</title>
+  <link href='https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+  <link href='phased.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="canvas"></div>
+  <div id="hud">
+    <div id="crosshair"></div>
+    <div id="fps">FPS: ~</div>
+    <div id="info">
+      <div id="chamber"></div>
+      <div id="time"></div>
+    </div>
+    <div id="gravity"></div>
+  </div>
+  <div id="overlay"></div>
+  <div id="loader">
+    <div id="base">PHASED</div>
+    <div id="progress">PHASED</div>
+    <div id="message">LOADING...</div>
+  </div>
+  <div id="level"></div>
+  <div id="gg">
+    <span id="gg-label">GAME OVER</span>
+    <div id="gg-time">YOUR TIME: </div>
+    <div id="gg-restart">RESTART LEVEL</div>
+    <div id="gg-lobby">NEW GAME</div>
+  </div>
+  <div id="menu">
+    <div id="menu-resume">RESUME</div>
+    <div id="menu-restart">RESTART LEVEL</div>
+    <div id="menu-lobby">NEW GAME</div>
+  </div>
+  <div id="uicover"></div>
+
+  <script src="src/lib/Three.js"></script>
+  <script src="src/lib/KeyboardState.js"></script>
+  <script src="src/lib/ColladaLoader.js"></script>
+  <script src="src/lib/OBJLoader.js"></script>
+  <script src="src/lib/Stats.min.js"></script>
+
+  <script src="src/lib/postprocessing/EffectComposer.js"></script>
+  <script src="src/lib/postprocessing/MaskPass.js"></script>
+  <script src="src/lib/postprocessing/RenderPass.js"></script>
+  <script src="src/lib/postprocessing/ShaderPass.js"></script>
+  <script src="src/lib/postprocessing/BloomPass.js"></script>
+  <script src="src/lib/shaders/BlendShader.js"></script>
+  <script src="src/lib/shaders/CopyShader.js"></script>
+  <script src="src/lib/shaders/ConvolutionShader.js"></script>
+  <script src="src/lib/shaders/FXAAShader.js"></script>
+  <script src="src/lib/shaders/HorizontalBlurShader.js"></script>
+  <script src="src/lib/shaders/VerticalBlurShader.js"></script>
+
+  <script src="src/core/Engine.js"></script>
+  <script src="src/core/Immersion.js"></script>
+  <script src="src/core/Player.js"></script>
+  <script src="src/core/UI.js"></script>
+  <script src="src/physics/Physed.js"></script>
+  <script src="src/physics/Colliders.js"></script>
+
+  <script src="src/assets/AssetLoader.js"></script>
+  <script src="src/assets/Door.js"></script>
+  <script src="src/assets/Button.js"></script>
+  <script src="src/assets/LightPlate.js"></script>
+  <script src="src/assets/LightPanel.js"></script>
+  <script src="src/assets/Spotlight.js"></script>
+  <script src="src/assets/Pedestal.js"></script>
+  <script src="src/assets/GlassBarrier.js"></script>
+  <script src="src/assets/HazardField.js"></script>
+
+  <script src="src/vfx/GravityShift.js"></script>
+
+  <script src="src/levels/Sandbox.js"></script>
+  <script src="src/levels/Level1.js"></script>
+  <script src="src/levels/Level2.js"></script>
+  <script src="src/levels/Level3.js"></script>
+</body>
+</html>
